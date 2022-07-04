@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="common/header :: common-header">
+    <title>Blog</title>
+</head>
+<body>
+<nav th:replace="common/navbar :: common-navbar"/>
+
+<div class="container mt-20">
+    <div th:each="t: ${articles}" class="card">
+        <h1><a th:href="@{/read/{id}(id=${t.getId()})}" th:text="${t.getHeadline()}"/></h1>
+        <h7 class="secondary-text" th:text="@{'By ' + ${t.getAuthor()}}"></h7>
+    </div>
+<ul th:each="t: ${titles}">
+    <li th:utext="${t}"></li>
+</ul>
+</div>
+</body>
+</html>
